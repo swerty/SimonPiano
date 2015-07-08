@@ -36,7 +36,7 @@
         self.numberOfKeys = [self.dataSource numberOfKeysInPiano];
         [self addPianoKeys];
         [self setNeedsUpdateConstraints];
-//        [self setNeedsLayout];
+        [self setNeedsLayout];
     }
 }
 
@@ -66,13 +66,20 @@
     [self autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self.superview withMultiplier:0.5];
     
     //the piano is anchored to the bottom of its superview and centered horizontally
-    [self autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.superview];
+    [self autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     [self autoConstrainAttribute:ALAttributeVertical toAttribute:ALAttributeVertical ofView:self.superview];
 }
 
 - (void)addConstraintsToKeys {
-    [self.keys autoMatchDimensions:ALDimensionHeight toDimension:ALDimensionHeight ofView:self.superview withMultiplier:0.5];
-    [self.keys autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeBottom withFixedSpacing:0.0];
+    //the keys are the same height as the piano (self)
+    [self.keys autoMatchDimensions:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:1.0];
+    
+    //the keys are all the same width, with no spacing in between
+    [self.keys autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:0.0];
+    
+    
+    //the keys are attached to the bottom of the piano
+    [self.keys autoPinEdgesToSuperViewEdge:ALEdgeBottom];
 }
 
 - (BOOL)dataSourceImplementsDataSourceProtocol {

@@ -12,5 +12,5 @@
 @interface NSArray (MyArrayPureLayout)
 
 - (NSArray*)autoMatchDimensions:(ALDimension)dimension toDimension:(ALDimension)toDimension ofView:(ALView *)otherView withMultiplier:(CGFloat)multiplier;
-
+- (NSArray*)autoPinEdgesToSuperViewEdge:(ALEdge)edge;
 @end

@@ -27,10 +27,16 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         self.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addKeyBorder];
         [self addHalfCircleViewWithColor:color];
     }
     
     return self;
+}
+
+- (void)addKeyBorder {
+    self.layer.borderColor = [UIColor blackColor].CGColor;
+    self.layer.borderWidth = 1.0f;
 }
 
 - (void)addHalfCircleViewWithColor:(UIColor *)color {

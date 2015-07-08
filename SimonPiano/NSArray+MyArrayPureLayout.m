@@ -23,4 +23,16 @@
     return constraints;
 }
 
+- (NSArray*)autoPinEdgesToSuperViewEdge:(ALEdge)edge {
+    NSMutableArray *constraints = [NSMutableArray new];
+    for (id object in self) {
+        if ([object isKindOfClass:[ALView class]]) {
+            ALView *view = (ALView *)object;
+            view.translatesAutoresizingMaskIntoConstraints = NO;
+            [constraints addObject:[view autoPinEdgeToSuperviewEdge:edge]];
+        }
+    }
+    return constraints;
+}
+
 @end
