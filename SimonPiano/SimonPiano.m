@@ -36,6 +36,7 @@
         self.numberOfKeys = [self.dataSource numberOfKeysInPiano];
         [self addPianoKeys];
         [self setNeedsUpdateConstraints];
+//        [self setNeedsLayout];
     }
 }
 
@@ -60,65 +61,18 @@
 }
 
 - (void)addConstraintsToPiano {
-    //the piano is anchored to the bottom of its superview and centered horizontally
-    [self autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-    [self autoCenterInSuperview];
-    
     //the piano is the same width and half the height its superview
     [self autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.superview];
     [self autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self.superview withMultiplier:0.5];
+    
+    //the piano is anchored to the bottom of its superview and centered horizontally
+    [self autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.superview];
+    [self autoConstrainAttribute:ALAttributeVertical toAttribute:ALAttributeVertical ofView:self.superview];
 }
 
 - (void)addConstraintsToKeys {
     [self.keys autoMatchDimensions:ALDimensionHeight toDimension:ALDimensionHeight ofView:self.superview withMultiplier:0.5];
     [self.keys autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeBottom withFixedSpacing:0.0];
-}
-
-- (void)addConstraintsForPiano {
-    // Pin the bottom of subview to the bottom of containerView.
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.superview attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-    
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.superview attribute:NSLayoutAttributeHeight multiplier:0.5 constant:0]];
-    
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.superview attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
-    
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.superview attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-}
-
-- (void)addConstraintsForKey:(PianoKeyButton *)key atIndex:(int)index {
-    NSString *keyName = [NSString stringWithFormat:@"key%d", index];
-    NSDictionary *viewsDictionary = @{keyName : key};
-    
-    //Height and vertical position constraint
-    [self addConstraints:[NSLayoutConstraint
-                          constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-0-[%@]-0-|", keyName]
-                          options:NSLayoutFormatDirectionLeadingToTrailing
-                          metrics:nil
-                          views:viewsDictionary]];
-    
-    // Width constraint
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:key
-                                                     attribute:NSLayoutAttributeWidth
-                                                     relatedBy:NSLayoutRelationEqual
-                                                        toItem:self
-                                                     attribute:NSLayoutAttributeWidth
-                                                    multiplier:1.0/(float)self.numberOfKeys
-                                                      constant:0]];
-    
-    int indexOfPreviousKey = index - 1;
-    // Horizontal position constraint
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:key
-                                                     attribute:NSLayoutAttributeLeft
-                                                     relatedBy:NSLayoutRelationEqual
-                                                        toItem:self.keys[indexOfPreviousKey]
-                                                     attribute:NSLayoutAttributeRight
-                                                    multiplier:1.0
-                                                      constant:0]];
-    
-}
-
-- (void)addConstraintsForKeys {
-    
 }
 
 - (BOOL)dataSourceImplementsDataSourceProtocol {
