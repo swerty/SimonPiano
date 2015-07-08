@@ -1,0 +1,571 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00097D5A1B45AF5E00921602 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00097D591B45AF5E00921602 /* main.m */; };
+		00097D5D1B45AF5E00921602 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00097D5C1B45AF5E00921602 /* AppDelegate.m */; };
+		00097D651B45AF5E00921602 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00097D641B45AF5E00921602 /* Images.xcassets */; };
+		00097D741B45AF5E00921602 /* SimonPianoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00097D731B45AF5E00921602 /* SimonPianoTests.m */; };
+		00097D821B45C36E00921602 /* ColorHalfCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00097D811B45C36E00921602 /* ColorHalfCircleView.m */; };
+		00097D851B45C71600921602 /* PianoKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00097D841B45C71600921602 /* PianoKeyButton.m */; };
+		0044E2581B49C08C00FC7AA6 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 0044E2571B49C08C00FC7AA6 /* Song.m */; };
+		0044E25B1B49C25200FC7AA6 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 0044E25A1B49C25200FC7AA6 /* Note.m */; };
+		0044E2621B49C88400FC7AA6 /* Phrase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0044E2611B49C88400FC7AA6 /* Phrase.m */; };
+		0044E2651B49CDAC00FC7AA6 /* SongFileProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0044E2641B49CDAC00FC7AA6 /* SongFileProcessor.m */; };
+		005600C51B49A25B00A6BE93 /* SimonPiano.m in Sources */ = {isa = PBXBuildFile; fileRef = 005600C41B49A25B00A6BE93 /* SimonPiano.m */; };
+		0079AFD51B47217000195A8B /* SimonPianoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0079AFD41B47217000195A8B /* SimonPianoViewController.m */; };
+		00A812901B4AE6B200063E77 /* UIColor+SimonPianoColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A8128F1B4AE6B200063E77 /* UIColor+SimonPianoColors.m */; };
+		00A812931B4B02BC00063E77 /* NotePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A812921B4B02BC00063E77 /* NotePlayer.m */; };
+		00AD014B1B49D63300ABDB9B /* SongBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AD014A1B49D63300ABDB9B /* SongBuilder.m */; };
+		00D242331B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D242321B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.m */; };
+		00F608391B49EAEC00708982 /* NSString+TextInputVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F608381B49EAEC00708982 /* NSString+TextInputVerification.m */; };
+		89DDFFE32CA6C85065F278E3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF1C1ACD49EE4414B412704 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00097D6E1B45AF5E00921602 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00097D4C1B45AF5E00921602 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00097D531B45AF5E00921602;
+			remoteInfo = SimonPiano;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00097D541B45AF5E00921602 /* SimonPiano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimonPiano.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00097D581B45AF5E00921602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00097D591B45AF5E00921602 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		00097D5B1B45AF5E00921602 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		00097D5C1B45AF5E00921602 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		00097D641B45AF5E00921602 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		00097D6D1B45AF5E00921602 /* SimonPianoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimonPianoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00097D721B45AF5E00921602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00097D731B45AF5E00921602 /* SimonPianoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimonPianoTests.m; sourceTree = "<group>"; };
+		00097D801B45C36E00921602 /* ColorHalfCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorHalfCircleView.h; sourceTree = "<group>"; };
+		00097D811B45C36E00921602 /* ColorHalfCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorHalfCircleView.m; sourceTree = "<group>"; };
+		00097D831B45C71600921602 /* PianoKeyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PianoKeyButton.h; sourceTree = "<group>"; };
+		00097D841B45C71600921602 /* PianoKeyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PianoKeyButton.m; sourceTree = "<group>"; };
+		0044E2561B49C08C00FC7AA6 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		0044E2571B49C08C00FC7AA6 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		0044E2591B49C25200FC7AA6 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		0044E25A1B49C25200FC7AA6 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		0044E2601B49C88400FC7AA6 /* Phrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Phrase.h; sourceTree = "<group>"; };
+		0044E2611B49C88400FC7AA6 /* Phrase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Phrase.m; sourceTree = "<group>"; };
+		0044E2631B49CDAC00FC7AA6 /* SongFileProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongFileProcessor.h; sourceTree = "<group>"; };
+		0044E2641B49CDAC00FC7AA6 /* SongFileProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongFileProcessor.m; sourceTree = "<group>"; };
+		005600C31B49A25B00A6BE93 /* SimonPiano.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimonPiano.h; sourceTree = "<group>"; };
+		005600C41B49A25B00A6BE93 /* SimonPiano.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimonPiano.m; sourceTree = "<group>"; };
+		0079AFD31B47217000195A8B /* SimonPianoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimonPianoViewController.h; sourceTree = SOURCE_ROOT; };
+		0079AFD41B47217000195A8B /* SimonPianoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimonPianoViewController.m; sourceTree = SOURCE_ROOT; };
+		00A8128E1B4AE6B200063E77 /* UIColor+SimonPianoColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SimonPianoColors.h"; sourceTree = "<group>"; };
+		00A8128F1B4AE6B200063E77 /* UIColor+SimonPianoColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SimonPianoColors.m"; sourceTree = "<group>"; };
+		00A812911B4B02BC00063E77 /* NotePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotePlayer.h; sourceTree = "<group>"; };
+		00A812921B4B02BC00063E77 /* NotePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotePlayer.m; sourceTree = "<group>"; };
+		00AD01491B49D63300ABDB9B /* SongBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongBuilder.h; sourceTree = "<group>"; };
+		00AD014A1B49D63300ABDB9B /* SongBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongBuilder.m; sourceTree = "<group>"; };
+		00D242311B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MyArrayPureLayout.h"; sourceTree = "<group>"; };
+		00D242321B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MyArrayPureLayout.m"; sourceTree = "<group>"; };
+		00F608371B49EAEC00708982 /* NSString+TextInputVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextInputVerification.h"; sourceTree = "<group>"; };
+		00F608381B49EAEC00708982 /* NSString+TextInputVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextInputVerification.m"; sourceTree = "<group>"; };
+		18911955ECF4E2101C24A25F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		4CF1C1ACD49EE4414B412704 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C819E1EF484FC7B10CA9865E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00097D511B45AF5E00921602 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89DDFFE32CA6C85065F278E3 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00097D6A1B45AF5E00921602 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00097D4B1B45AF5E00921602 = {
+			isa = PBXGroup;
+			children = (
+				00097D551B45AF5E00921602 /* Products */,
+				00097D561B45AF5E00921602 /* SimonPiano */,
+				00097D701B45AF5E00921602 /* SimonPianoTests */,
+				F8EEEE1080D4D96489D7686D /* Pods */,
+				CE044B7AF001B7304283B6D2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		00097D551B45AF5E00921602 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00097D541B45AF5E00921602 /* SimonPiano.app */,
+				00097D6D1B45AF5E00921602 /* SimonPianoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00097D561B45AF5E00921602 /* SimonPiano */ = {
+			isa = PBXGroup;
+			children = (
+				00097D5B1B45AF5E00921602 /* AppDelegate.h */,
+				00097D5C1B45AF5E00921602 /* AppDelegate.m */,
+				00097D641B45AF5E00921602 /* Images.xcassets */,
+				00A812911B4B02BC00063E77 /* NotePlayer.h */,
+				00A812921B4B02BC00063E77 /* NotePlayer.m */,
+				0044E25C1B49C26300FC7AA6 /* Model */,
+				0044E25E1B49C34D00FC7AA6 /* View */,
+				0044E25F1B49C35700FC7AA6 /* Controller */,
+				0044E25D1B49C33700FC7AA6 /* Song Input */,
+				00097D571B45AF5E00921602 /* Supporting Files */,
+			);
+			path = SimonPiano;
+			sourceTree = "<group>";
+		};
+		00097D571B45AF5E00921602 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00097D581B45AF5E00921602 /* Info.plist */,
+				00097D591B45AF5E00921602 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00097D701B45AF5E00921602 /* SimonPianoTests */ = {
+			isa = PBXGroup;
+			children = (
+				00097D731B45AF5E00921602 /* SimonPianoTests.m */,
+				00097D711B45AF5E00921602 /* Supporting Files */,
+			);
+			path = SimonPianoTests;
+			sourceTree = "<group>";
+		};
+		00097D711B45AF5E00921602 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00097D721B45AF5E00921602 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0044E25C1B49C26300FC7AA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0044E2591B49C25200FC7AA6 /* Note.h */,
+				0044E25A1B49C25200FC7AA6 /* Note.m */,
+				0044E2601B49C88400FC7AA6 /* Phrase.h */,
+				0044E2611B49C88400FC7AA6 /* Phrase.m */,
+				0044E2561B49C08C00FC7AA6 /* Song.h */,
+				0044E2571B49C08C00FC7AA6 /* Song.m */,
+				00D242311B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.h */,
+				00D242321B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0044E25D1B49C33700FC7AA6 /* Song Input */ = {
+			isa = PBXGroup;
+			children = (
+				0044E2631B49CDAC00FC7AA6 /* SongFileProcessor.h */,
+				0044E2641B49CDAC00FC7AA6 /* SongFileProcessor.m */,
+				00AD01491B49D63300ABDB9B /* SongBuilder.h */,
+				00AD014A1B49D63300ABDB9B /* SongBuilder.m */,
+				00F608371B49EAEC00708982 /* NSString+TextInputVerification.h */,
+				00F608381B49EAEC00708982 /* NSString+TextInputVerification.m */,
+			);
+			name = "Song Input";
+			sourceTree = "<group>";
+		};
+		0044E25E1B49C34D00FC7AA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00097D801B45C36E00921602 /* ColorHalfCircleView.h */,
+				00097D811B45C36E00921602 /* ColorHalfCircleView.m */,
+				00097D831B45C71600921602 /* PianoKeyButton.h */,
+				00097D841B45C71600921602 /* PianoKeyButton.m */,
+				005600C31B49A25B00A6BE93 /* SimonPiano.h */,
+				005600C41B49A25B00A6BE93 /* SimonPiano.m */,
+				00A8128E1B4AE6B200063E77 /* UIColor+SimonPianoColors.h */,
+				00A8128F1B4AE6B200063E77 /* UIColor+SimonPianoColors.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0044E25F1B49C35700FC7AA6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0079AFD31B47217000195A8B /* SimonPianoViewController.h */,
+				0079AFD41B47217000195A8B /* SimonPianoViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		CE044B7AF001B7304283B6D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CF1C1ACD49EE4414B412704 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8EEEE1080D4D96489D7686D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18911955ECF4E2101C24A25F /* Pods.debug.xcconfig */,
+				C819E1EF484FC7B10CA9865E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00097D531B45AF5E00921602 /* SimonPiano */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00097D771B45AF5E00921602 /* Build configuration list for PBXNativeTarget "SimonPiano" */;
+			buildPhases = (
+				B84C384679E7FCB57BFEA587 /* Check Pods Manifest.lock */,
+				00097D501B45AF5E00921602 /* Sources */,
+				00097D511B45AF5E00921602 /* Frameworks */,
+				00097D521B45AF5E00921602 /* Resources */,
+				0C90C292155147E995838B89 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimonPiano;
+			productName = SimonPiano;
+			productReference = 00097D541B45AF5E00921602 /* SimonPiano.app */;
+			productType = "com.apple.product-type.application";
+		};
+		00097D6C1B45AF5E00921602 /* SimonPianoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00097D7A1B45AF5E00921602 /* Build configuration list for PBXNativeTarget "SimonPianoTests" */;
+			buildPhases = (
+				00097D691B45AF5E00921602 /* Sources */,
+				00097D6A1B45AF5E00921602 /* Frameworks */,
+				00097D6B1B45AF5E00921602 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00097D6F1B45AF5E00921602 /* PBXTargetDependency */,
+			);
+			name = SimonPianoTests;
+			productName = SimonPianoTests;
+			productReference = 00097D6D1B45AF5E00921602 /* SimonPianoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00097D4C1B45AF5E00921602 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Sean Wertheim";
+				TargetAttributes = {
+					00097D531B45AF5E00921602 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					00097D6C1B45AF5E00921602 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 00097D531B45AF5E00921602;
+					};
+				};
+			};
+			buildConfigurationList = 00097D4F1B45AF5E00921602 /* Build configuration list for PBXProject "SimonPiano" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 00097D4B1B45AF5E00921602;
+			productRefGroup = 00097D551B45AF5E00921602 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00097D531B45AF5E00921602 /* SimonPiano */,
+				00097D6C1B45AF5E00921602 /* SimonPianoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00097D521B45AF5E00921602 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00097D651B45AF5E00921602 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00097D6B1B45AF5E00921602 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C90C292155147E995838B89 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B84C384679E7FCB57BFEA587 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00097D501B45AF5E00921602 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0044E2621B49C88400FC7AA6 /* Phrase.m in Sources */,
+				00097D5D1B45AF5E00921602 /* AppDelegate.m in Sources */,
+				00097D5A1B45AF5E00921602 /* main.m in Sources */,
+				00097D821B45C36E00921602 /* ColorHalfCircleView.m in Sources */,
+				00A812931B4B02BC00063E77 /* NotePlayer.m in Sources */,
+				00097D851B45C71600921602 /* PianoKeyButton.m in Sources */,
+				0044E2651B49CDAC00FC7AA6 /* SongFileProcessor.m in Sources */,
+				00AD014B1B49D63300ABDB9B /* SongBuilder.m in Sources */,
+				005600C51B49A25B00A6BE93 /* SimonPiano.m in Sources */,
+				0044E25B1B49C25200FC7AA6 /* Note.m in Sources */,
+				00F608391B49EAEC00708982 /* NSString+TextInputVerification.m in Sources */,
+				00A812901B4AE6B200063E77 /* UIColor+SimonPianoColors.m in Sources */,
+				0044E2581B49C08C00FC7AA6 /* Song.m in Sources */,
+				0079AFD51B47217000195A8B /* SimonPianoViewController.m in Sources */,
+				00D242331B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00097D691B45AF5E00921602 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00097D741B45AF5E00921602 /* SimonPianoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00097D6F1B45AF5E00921602 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00097D531B45AF5E00921602 /* SimonPiano */;
+			targetProxy = 00097D6E1B45AF5E00921602 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00097D751B45AF5E00921602 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		00097D761B45AF5E00921602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		00097D781B45AF5E00921602 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18911955ECF4E2101C24A25F /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SimonPiano/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		00097D791B45AF5E00921602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C819E1EF484FC7B10CA9865E /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SimonPiano/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		00097D7B1B45AF5E00921602 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimonPianoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimonPiano.app/SimonPiano";
+			};
+			name = Debug;
+		};
+		00097D7C1B45AF5E00921602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimonPianoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimonPiano.app/SimonPiano";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00097D4F1B45AF5E00921602 /* Build configuration list for PBXProject "SimonPiano" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00097D751B45AF5E00921602 /* Debug */,
+				00097D761B45AF5E00921602 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00097D771B45AF5E00921602 /* Build configuration list for PBXNativeTarget "SimonPiano" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00097D781B45AF5E00921602 /* Debug */,
+				00097D791B45AF5E00921602 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00097D7A1B45AF5E00921602 /* Build configuration list for PBXNativeTarget "SimonPianoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00097D7B1B45AF5E00921602 /* Debug */,
+				00097D7C1B45AF5E00921602 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 00097D4C1B45AF5E00921602 /* Project object */;
+}
