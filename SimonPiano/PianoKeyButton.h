@@ -10,7 +10,9 @@
 
 @interface PianoKeyButton : UIButton
 
-+ (instancetype)keyWithCircleColor:(UIColor *)color;
-- (instancetype)initWithCircleColor:(UIColor*)color;
++ (instancetype)keyWithCircleColor:(UIColor *)color noteValue:(int)noteValue;
+- (instancetype)initWithCircleColor:(UIColor*)color noteValue:(int)noteValue;
 
+//hmmmmmm <<<<<<<<<<<<<<
+@property (assign, nonatomic) int noteValue;
 @end

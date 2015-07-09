@@ -25,7 +25,7 @@
 - (void)setupWindow {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [SimonPianoViewController new];
+    self.window.rootViewController = [[SimonPianoViewController alloc] initWithSong:nil];
     [self.window makeKeyAndVisible];
 }
 

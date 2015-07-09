@@ -21,6 +21,7 @@
 - (instancetype)initWithNumberOfNotes:(int)numberOfNotes{
     self = [super init];
     if (self) {
+        self.numberOfNotes = numberOfNotes;
         [self setupNotes];
     }
     
@@ -28,11 +29,11 @@
 }
 
 - (void)setupNotes {
-    NSMutableArray *notes;
-    for (int i = 0; i < self.numberOfNotes; i++) {
+    NSMutableArray *notes = [NSMutableArray new];
+    for (int i = 1; i <= self.numberOfNotes; i++) {
         [notes addObject:[Note noteWithValue:i]];
     }
-    self.notes = notes;
+    self.notes = [notes copy];
 }
 
 - (void)playNoteWithValue:(int)value {

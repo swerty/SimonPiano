@@ -17,13 +17,15 @@
 @end
 
 @protocol SimonPianoDelegate <NSObject>
-- (void)simonPiano:(SimonPiano *)simonPiano didPressKeyAtIndex:(NSInteger)index;
+- (void)simonPiano:(SimonPiano *)simonPiano didPressKeyAtIndex:(int)index;
 @end
 
 @interface SimonPiano : UIView
 @property (weak, nonatomic) id <SimonPianoDataSource> dataSource;
 @property (weak, nonatomic) id <SimonPianoDelegate> delegate;
+@property (assign, nonatomic) BOOL allowsChords;
 
 - (void)reloadData;
+
 
 @end

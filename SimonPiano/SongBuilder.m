@@ -39,15 +39,10 @@ static NSString * const SongBuilderNoteDelimiter = @"-";
 
 + (NSArray *)notesWithNoteValues:(NSArray *)noteValues {
     NSArray *notes = [noteValues bk_map:^id(id noteValue) {
-        return [self noteWithValue:(int)noteValue];
+        return [[Note alloc] initWithValue:(int)noteValue];
     }];
     
     return notes;
-}
-
-+ (Note *)noteWithValue:(int)value {
-    
-    return [[Note alloc] initWithValue:value];
 }
 
 @end

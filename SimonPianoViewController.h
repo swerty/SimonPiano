@@ -6,8 +6,10 @@
 //  Copyright (c) 2015 Sean Wertheim. All rights reserved.
 //
 
+
+@class Song;
 #import <UIKit/UIKit.h>
 
 @interface SimonPianoViewController : UIViewController
-
+- (instancetype)initWithSong:(Song *)song;
 @end

@@ -25,9 +25,17 @@
     if (self) {
         self.translatesAutoresizingMaskIntoConstraints = NO; //so autolayout will work
         self.keys = [NSMutableArray new];
+        self.allowsChords = NO;
     }
     
     return self;
+}
+
+- (void)setAllowsChords:(BOOL)allowsChords {
+    _allowsChords = allowsChords;
+    for (PianoKeyButton *key in self.keys) {
+        key.exclusiveTouch = !allowsChords;
+    }
 }
 
 - (void)reloadData {
@@ -42,11 +50,20 @@
 
 - (void)addPianoKeys {
     for (int i = 0; i < self.numberOfKeys; i++) {
+        int displayedNoteValue = i;
         UIColor *keyColor = [self.dataSource colorForKeyHalfCircleAtIndex:i];
-        PianoKeyButton *key = [PianoKeyButton keyWithCircleColor:keyColor];
+        PianoKeyButton *key = [PianoKeyButton keyWithCircleColor:keyColor noteValue: displayedNoteValue];
+        key.exclusiveTouch = !self.allowsChords;
+        [key addTarget:self action:@selector(keyWasPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:key];
         [self.keys addObject:key];
     }
+}
+
+- (void)keyWasPressed:(id)sender {
+    PianoKeyButton *key = (PianoKeyButton *)sender;
+    int arrayIndex = key.noteValue - 1;
+    [self.delegate simonPiano:self didPressKeyAtIndex:arrayIndex];
 }
 
 - (void)updateConstraints

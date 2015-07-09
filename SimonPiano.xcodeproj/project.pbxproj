@@ -18,6 +18,12 @@
 		0044E2621B49C88400FC7AA6 /* Phrase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0044E2611B49C88400FC7AA6 /* Phrase.m */; };
 		0044E2651B49CDAC00FC7AA6 /* SongFileProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0044E2641B49CDAC00FC7AA6 /* SongFileProcessor.m */; };
 		005600C51B49A25B00A6BE93 /* SimonPiano.m in Sources */ = {isa = PBXBuildFile; fileRef = 005600C41B49A25B00A6BE93 /* SimonPiano.m */; };
+		006114441B4E17DD003F38F7 /* 3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 006114421B4E0D84003F38F7 /* 3.aif */; };
+		006114451B4E17DD003F38F7 /* 6.aif in Resources */ = {isa = PBXBuildFile; fileRef = 006114431B4E0D84003F38F7 /* 6.aif */; };
+		006114461B4E17DD003F38F7 /* 1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 0061143E1B4E0D7C003F38F7 /* 1.aif */; };
+		006114471B4E17DD003F38F7 /* 2.aif in Resources */ = {isa = PBXBuildFile; fileRef = 0061143F1B4E0D7C003F38F7 /* 2.aif */; };
+		006114481B4E17DD003F38F7 /* 4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 006114401B4E0D7C003F38F7 /* 4.aif */; };
+		006114491B4E17DD003F38F7 /* 5.aif in Resources */ = {isa = PBXBuildFile; fileRef = 006114411B4E0D7C003F38F7 /* 5.aif */; };
 		0079AFD51B47217000195A8B /* SimonPianoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0079AFD41B47217000195A8B /* SimonPianoViewController.m */; };
 		00A812901B4AE6B200063E77 /* UIColor+SimonPianoColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A8128F1B4AE6B200063E77 /* UIColor+SimonPianoColors.m */; };
 		00A812931B4B02BC00063E77 /* NotePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A812921B4B02BC00063E77 /* NotePlayer.m */; };
@@ -61,6 +67,12 @@
 		0044E2641B49CDAC00FC7AA6 /* SongFileProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongFileProcessor.m; sourceTree = "<group>"; };
 		005600C31B49A25B00A6BE93 /* SimonPiano.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimonPiano.h; sourceTree = "<group>"; };
 		005600C41B49A25B00A6BE93 /* SimonPiano.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimonPiano.m; sourceTree = "<group>"; };
+		0061143E1B4E0D7C003F38F7 /* 1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.aif; sourceTree = "<group>"; };
+		0061143F1B4E0D7C003F38F7 /* 2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.aif; sourceTree = "<group>"; };
+		006114401B4E0D7C003F38F7 /* 4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4.aif; sourceTree = "<group>"; };
+		006114411B4E0D7C003F38F7 /* 5.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5.aif; sourceTree = "<group>"; };
+		006114421B4E0D84003F38F7 /* 3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3.aif; sourceTree = "<group>"; };
+		006114431B4E0D84003F38F7 /* 6.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = 6.aif; sourceTree = "<group>"; };
 		0079AFD31B47217000195A8B /* SimonPianoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimonPianoViewController.h; sourceTree = SOURCE_ROOT; };
 		0079AFD41B47217000195A8B /* SimonPianoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimonPianoViewController.m; sourceTree = SOURCE_ROOT; };
 		00A8128E1B4AE6B200063E77 /* UIColor+SimonPianoColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SimonPianoColors.h"; sourceTree = "<group>"; };
@@ -120,6 +132,7 @@
 		00097D561B45AF5E00921602 /* SimonPiano */ = {
 			isa = PBXGroup;
 			children = (
+				0061143D1B4E0D45003F38F7 /* Resources */,
 				00097D5B1B45AF5E00921602 /* AppDelegate.h */,
 				00097D5C1B45AF5E00921602 /* AppDelegate.m */,
 				00097D641B45AF5E00921602 /* Images.xcassets */,
@@ -191,12 +204,12 @@
 		0044E25E1B49C34D00FC7AA6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				00097D801B45C36E00921602 /* ColorHalfCircleView.h */,
-				00097D811B45C36E00921602 /* ColorHalfCircleView.m */,
-				00097D831B45C71600921602 /* PianoKeyButton.h */,
-				00097D841B45C71600921602 /* PianoKeyButton.m */,
 				005600C31B49A25B00A6BE93 /* SimonPiano.h */,
 				005600C41B49A25B00A6BE93 /* SimonPiano.m */,
+				00097D831B45C71600921602 /* PianoKeyButton.h */,
+				00097D841B45C71600921602 /* PianoKeyButton.m */,
+				00097D801B45C36E00921602 /* ColorHalfCircleView.h */,
+				00097D811B45C36E00921602 /* ColorHalfCircleView.m */,
 				00A8128E1B4AE6B200063E77 /* UIColor+SimonPianoColors.h */,
 				00A8128F1B4AE6B200063E77 /* UIColor+SimonPianoColors.m */,
 			);
@@ -210,6 +223,19 @@
 				0079AFD41B47217000195A8B /* SimonPianoViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		0061143D1B4E0D45003F38F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				006114421B4E0D84003F38F7 /* 3.aif */,
+				006114431B4E0D84003F38F7 /* 6.aif */,
+				0061143E1B4E0D7C003F38F7 /* 1.aif */,
+				0061143F1B4E0D7C003F38F7 /* 2.aif */,
+				006114401B4E0D7C003F38F7 /* 4.aif */,
+				006114411B4E0D7C003F38F7 /* 5.aif */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		CE044B7AF001B7304283B6D2 /* Frameworks */ = {
@@ -311,6 +337,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006114441B4E17DD003F38F7 /* 3.aif in Resources */,
+				006114451B4E17DD003F38F7 /* 6.aif in Resources */,
+				006114461B4E17DD003F38F7 /* 1.aif in Resources */,
+				006114471B4E17DD003F38F7 /* 2.aif in Resources */,
+				006114481B4E17DD003F38F7 /* 4.aif in Resources */,
+				006114491B4E17DD003F38F7 /* 5.aif in Resources */,
 				00097D651B45AF5E00921602 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +514,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SimonPiano/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
@@ -495,6 +528,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SimonPiano/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;

@@ -10,6 +10,6 @@
 
 @interface ColorHalfCircleView : UIView
 
-- (instancetype)initWithCenter:(CGPoint)center radius:(CGFloat)radius color:(UIColor*) color;
+- (instancetype)initWithColor:(UIColor*) color;
 
 @end

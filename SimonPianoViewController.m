@@ -10,17 +10,32 @@
 
 #import "SimonPianoViewController.h"
 #import "SimonPiano.h"
+#import "Song.h"
+#import "NotePlayer.h"
 
 @interface SimonPianoViewController () <SimonPianoDelegate, SimonPianoDataSource>
 
 @property (strong, nonatomic) NSArray *keyColors;
 @property (strong, nonatomic) SimonPiano *piano;
+@property (strong, nonatomic) NotePlayer* notePlayer;
+@property (strong, nonatomic) Song *song;
+@property (assign, nonatomic) int numberOfKeys;
 
 @end
 
 static int const SimonPianoControllerNumberOfKeys = 6;
 
 @implementation SimonPianoViewController
+
+- (instancetype)initWithSong:(Song *)song {
+    self = [super init];
+    if (self) {
+        self.song = song;
+        self.notePlayer = [[NotePlayer alloc] initWithNumberOfNotes:SimonPianoControllerNumberOfKeys];
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,8 +74,8 @@ static int const SimonPianoControllerNumberOfKeys = 6;
 
 #pragma mark SimonPianoDelegate Methods
 
-- (void)simonPiano:(SimonPiano *)simonPiano didPressKeyAtIndex:(NSInteger)index {
-    
+- (void)simonPiano:(SimonPiano *)simonPiano didPressKeyAtIndex:(int)index {
+    [self.notePlayer playNoteWithValue:index];
 }
 
 /*

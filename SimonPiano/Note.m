@@ -38,7 +38,7 @@
 - (void)associateWithSound {
     NSString *soundFileName = [NSString stringWithFormat:@"%d", self.value];
     NSURL *soundURL = [[NSBundle mainBundle] URLForResource:soundFileName
-                                              withExtension:@"caf"];
+                                              withExtension:@"aif"];
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &soundID);
 }
 
