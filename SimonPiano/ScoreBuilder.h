@@ -6,11 +6,12 @@
 //  Copyright (c) 2015 Sean Wertheim. All rights reserved.
 //
 
+@class MusicalScore;
 #import <Foundation/Foundation.h>
-#import "Song.h"
 
-@interface SongBuilder : NSError
+@interface ScoreBuilder : NSError
 
-+ (Song *)buildSongWithTitle:(NSString *)title string:(NSString *)string;
+- (instancetype)initWithSongTitle:(NSString *)title inputString:(NSString *)inputString;
+- (MusicalScore *)buildScore;
 
 @end

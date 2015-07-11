@@ -8,8 +8,8 @@
 
 #import "SongFileProcessor.h"
 #import "NSString+TextInputVerification.h"
-#import "SongBuilder.h"
-#import "Song.h"
+#import "ScoreBuilder.h"
+#import "MusicalScore.h"
 
 @interface SongFileProcessor ()
 
@@ -17,10 +17,10 @@
 
 @implementation SongFileProcessor
 
-- (void)processSongFileWithName:(NSString *)name completion:(SongFileProcessorCompletionBlock)completion {
++ (void)processSongFileWithName:(NSString *)name completion:(SongFileProcessorCompletionBlock)completion {
     
     NSError *error;
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:name ofType:@"txt"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:name ofType:nil];
     NSString *songText = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
     
     if (error) {
@@ -30,7 +30,8 @@
     BOOL isValid = [songText formatIsValidForSongText:songText];
     
     if (isValid) {
-        Song *outputSong = [SongBuilder buildSongWithTitle:name string:songText];
+        ScoreBuilder *scoreBuilder = [[ScoreBuilder alloc] initWithSongTitle:name inputString:songText];
+        MusicalScore *outputSong = [scoreBuilder buildScore];
         completion(outputSong, nil);
     } else {
         NSError *invalidInputError;

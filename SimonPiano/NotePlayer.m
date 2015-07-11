@@ -11,17 +11,21 @@
 
 @interface NotePlayer ()
 
-@property (assign, nonatomic) int numberOfNotes;
+@property (assign, nonatomic) int maxNoteValue;
+@property (assign, nonatomic) int minNoteValue;
+
 @property (strong, nonatomic) NSArray *notes;
 
 @end
 
 @implementation NotePlayer
 
-- (instancetype)initWithNumberOfNotes:(int)numberOfNotes{
+- (instancetype)initWithMinNoteValue:(int)minNoteValue maxNoteValue:(int)maxNoteValue{
     self = [super init];
     if (self) {
-        self.numberOfNotes = numberOfNotes;
+        self.minNoteValue = minNoteValue;
+        self.maxNoteValue = maxNoteValue;
+        
         [self setupNotes];
     }
     
@@ -30,7 +34,7 @@
 
 - (void)setupNotes {
     NSMutableArray *notes = [NSMutableArray new];
-    for (int i = 1; i <= self.numberOfNotes; i++) {
+    for (int i = self.minNoteValue; i <= self.maxNoteValue; i++) {
         [notes addObject:[Note noteWithValue:i]];
     }
     self.notes = [notes copy];

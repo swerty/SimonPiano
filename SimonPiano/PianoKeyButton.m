@@ -16,7 +16,7 @@
 @property (strong, nonatomic) ColorHalfCircleView *halfCircleView;
 @property (assign, nonatomic) BOOL didSetupConstraints;
 @property (strong, nonatomic) UIColor *circleColor;
-
+@property (assign, nonatomic) int noteValue;
 
 @end
 
@@ -57,6 +57,7 @@
 
 - (void)addHalfCircleView {
     self.halfCircleView = [[ColorHalfCircleView alloc] initWithColor:self.circleColor];
+    self.halfCircleView.userInteractionEnabled = NO;
     
     [self addSubview:self.halfCircleView];
     [self.halfCircleView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self];
@@ -66,12 +67,18 @@
 }
 
 - (void)addNumberLabel {
+    int displayValue = self.noteValue + 1;
     UILabel *numberLabel = [[UILabel alloc] init];
-    numberLabel.text = [NSString stringWithFormat:@"%d", self.noteValue];
+    numberLabel.userInteractionEnabled = NO;
+    numberLabel.text = [NSString stringWithFormat:@"%d", displayValue];
     numberLabel.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:18.0];
     
     [self addSubview:numberLabel];
     [numberLabel autoCenterInSuperview];
+}
+
+- (void)highlightHalfCircleView{
+    [self.halfCircleView highlightForDuration:(float)1.0 completion:nil];
 }
 
 @end

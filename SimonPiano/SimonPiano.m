@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Sean Wertheim. All rights reserved.
 //
 
+//#import <BlocksKit/BlocksKit.h>
+#import <BlocksKit+UIKit.h>
 #import "NSArray+MyArrayPureLayout.h"
 #import "SimonPiano.h"
 #import "PianoKeyButton.h"
@@ -54,16 +56,12 @@
         UIColor *keyColor = [self.dataSource colorForKeyHalfCircleAtIndex:i];
         PianoKeyButton *key = [PianoKeyButton keyWithCircleColor:keyColor noteValue: displayedNoteValue];
         key.exclusiveTouch = !self.allowsChords;
-        [key addTarget:self action:@selector(keyWasPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:key];
         [self.keys addObject:key];
+        [key bk_addEventHandler:^(id sender) {
+            [self.delegate simonPiano:self didPressKeyAtIndex:i];
+        } forControlEvents:UIControlEventTouchUpInside];
     }
-}
-
-- (void)keyWasPressed:(id)sender {
-    PianoKeyButton *key = (PianoKeyButton *)sender;
-    int arrayIndex = key.noteValue - 1;
-    [self.delegate simonPiano:self didPressKeyAtIndex:arrayIndex];
 }
 
 - (void)updateConstraints
@@ -103,6 +101,11 @@
     return self.dataSource &&
     [self.dataSource respondsToSelector:@selector(numberOfKeysInPiano)] &&
     [self.dataSource respondsToSelector:@selector(colorForKeyHalfCircleAtIndex:)];
+}
+
+- (void)animateKeyHighlightAtIndex:(int)index {
+    PianoKeyButton *keyToHighlight = self.keys[index];
+    [keyToHighlight highlightHalfCircleView];
 }
 
 @end

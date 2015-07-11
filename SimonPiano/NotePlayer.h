@@ -10,7 +10,7 @@
 
 @interface NotePlayer : NSObject
 
-- (instancetype)initWithNumberOfNotes:(int)numberOfNotes;
+- (instancetype)initWithMinNoteValue:(int)minNoteValue maxNoteValue:(int)maxNoteValue;
 - (void)playNoteWithValue:(int)value;
 
 @end

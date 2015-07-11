@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "SimonPianoViewController.h"
+#import "SongFileProcessor.h"
+
+static NSString * const DefaultSongName = @"Mary Had A Little Lamb";
 
 @interface AppDelegate ()
 
@@ -25,8 +28,18 @@
 - (void)setupWindow {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[SimonPianoViewController alloc] initWithSong:nil];
-    [self.window makeKeyAndVisible];
+    [self showPianoWithDefaultSong];
+}
+
+- (void)showPianoWithDefaultSong {
+    __weak typeof (self) weakSelf = self;
+    [SongFileProcessor processSongFileWithName:DefaultSongName completion:^(MusicalScore *song, NSError *error) {
+        if (!error) {
+            typeof (self) strongSelf = weakSelf;
+            strongSelf.window.rootViewController = [[SimonPianoViewController alloc] initWithSong:song];
+            [strongSelf.window makeKeyAndVisible];
+        }
+    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

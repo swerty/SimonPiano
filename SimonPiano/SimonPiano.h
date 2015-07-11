@@ -26,6 +26,6 @@
 @property (assign, nonatomic) BOOL allowsChords;
 
 - (void)reloadData;
-
+- (void)animateKeyHighlightAtIndex:(int)index;
 
 @end

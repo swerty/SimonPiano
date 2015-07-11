@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PianoKeyButton : UIButton
+@interface PianoKeyButton : UIControl
 
 + (instancetype)keyWithCircleColor:(UIColor *)color noteValue:(int)noteValue;
 - (instancetype)initWithCircleColor:(UIColor*)color noteValue:(int)noteValue;
+- (void)highlightHalfCircleView;
 
-//hmmmmmm <<<<<<<<<<<<<<
-@property (assign, nonatomic) int noteValue;
 @end

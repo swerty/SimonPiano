@@ -10,28 +10,39 @@
 
 #import "SimonPianoViewController.h"
 #import "SimonPiano.h"
-#import "Song.h"
-#import "NotePlayer.h"
+#import "MusicalScore.h"
+#import "ScorePlayer.h"
+#import "CorrectnessJudger.h"
+#import "PhraseGenerator.h"
+#import "MusicalPhrase.h" //<<<<<<<<<<<<<<<<<<<<<<<<<
 
-@interface SimonPianoViewController () <SimonPianoDelegate, SimonPianoDataSource>
+@interface SimonPianoViewController () <SimonPianoDelegate, SimonPianoDataSource, ScorePlayerDelegate, PhraseGeneratorDelegate>
 
+@property (assign, nonatomic) int indexOfCurrentPhrase;
+
+@property (assign, nonatomic) int numberOfKeys;
 @property (strong, nonatomic) NSArray *keyColors;
 @property (strong, nonatomic) SimonPiano *piano;
-@property (strong, nonatomic) NotePlayer* notePlayer;
-@property (strong, nonatomic) Song *song;
-@property (assign, nonatomic) int numberOfKeys;
+
+@property (strong, nonatomic) MusicalScore *score;
+@property (strong, nonatomic) ScorePlayer *scorePlayer;
+@property (strong, nonatomic) CorrectnessJudger *judger;
+@property (strong, nonatomic) PhraseGenerator *phraseGenerator;
 
 @end
 
 static int const SimonPianoControllerNumberOfKeys = 6;
+static float const SimonPianoControllerDefaultBPM = 90.0;
 
 @implementation SimonPianoViewController
 
-- (instancetype)initWithSong:(Song *)song {
+- (instancetype)initWithSong:(MusicalScore *)score {
     self = [super init];
     if (self) {
-        self.song = song;
-        self.notePlayer = [[NotePlayer alloc] initWithNumberOfNotes:SimonPianoControllerNumberOfKeys];
+        self.indexOfCurrentPhrase = 0;
+        self.score = score;
+        self.scorePlayer = [[ScorePlayer alloc] initWithScore:score BPM:SimonPianoControllerDefaultBPM];
+        self.scorePlayer.delegate = self;
     }
     
     return self;
@@ -53,12 +64,19 @@ static int const SimonPianoControllerNumberOfKeys = 6;
     self.piano.dataSource = self;
     self.piano.delegate = self;
     [self.view addSubview:self.piano];
-    [self.piano reloadData];
+    [self.piano reloadData]; //so that delegate/datasource methods are called
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self beginPlayingSong];
+}
+
+- (void)beginPlayingSong {
+    [self.piano setUserInteractionEnabled:NO];
+    self.indexOfCurrentPhrase = 0;
+    [self.scorePlayer playPhraseAtIndex:self.indexOfCurrentPhrase];
 }
 
 #pragma mark SimonPianoDataSource Methods
@@ -75,17 +93,41 @@ static int const SimonPianoControllerNumberOfKeys = 6;
 #pragma mark SimonPianoDelegate Methods
 
 - (void)simonPiano:(SimonPiano *)simonPiano didPressKeyAtIndex:(int)index {
-    [self.notePlayer playNoteWithValue:index];
+    [self.piano animateKeyHighlightAtIndex:index];
+    
+    int noteValue = index + 1; //keys are 0-indexed but notes are [1...6]
+    [self.phraseGenerator addNoteWithValue:noteValue];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark ScorePlayerDelegate Methods
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)scorePlayerDidFinishPlayingPhrase:(MusicalPhrase *)phrase {
+    self.judger = [[CorrectnessJudger alloc] initWithCorrectPhrase:phrase];
+    self.phraseGenerator = [[PhraseGenerator alloc] initWithPhraseLength:phrase.length];
+    self.phraseGenerator.delegate = self;
+    [self.piano setUserInteractionEnabled:YES];
 }
-*/
+
+- (void)scorePlayerDidPlayNoteWithValue:(int)value {
+    int keyIndex = value - 1; //keys are 0-indexed
+    [self.piano animateKeyHighlightAtIndex:keyIndex];
+}
+
+#pragma mark PhraseGeneratorDelegate Methods
+
+- (void)phraseGeneratorDidGeneratePhrase:(MusicalPhrase *)phrase {
+    self.judger.playedPhrase = phrase;
+    
+    if ([self.judger verify]) {
+        self.indexOfCurrentPhrase++;
+    }
+    
+    if (self.indexOfCurrentPhrase >= self.score.numberOfPhrases) {
+        return;
+    }
+    
+    [self.piano setUserInteractionEnabled:NO];
+    [self.scorePlayer playPhraseAtIndex:self.indexOfCurrentPhrase];
+}
 
 @end

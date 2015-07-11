@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef void (^HighlightCompletionBlock)(BOOL finished);
+
 @interface ColorHalfCircleView : UIView
 
 - (instancetype)initWithColor:(UIColor*) color;
+- (void)highlightForDuration:(float)duration completion:(HighlightCompletionBlock)completion;
 
 @end

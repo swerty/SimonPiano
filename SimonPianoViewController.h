@@ -7,9 +7,9 @@
 //
 
 
-@class Song;
+@class MusicalScore;
 #import <UIKit/UIKit.h>
 
 @interface SimonPianoViewController : UIViewController
-- (instancetype)initWithSong:(Song *)song;
+- (instancetype)initWithSong:(MusicalScore *)score;
 @end
