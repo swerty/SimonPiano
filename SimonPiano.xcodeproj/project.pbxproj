@@ -35,6 +35,8 @@
 		00D242331B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D242321B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.m */; };
 		00D56F961B4EFE79002FF452 /* PhrasePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D56F951B4EFE79002FF452 /* PhrasePlayer.m */; };
 		00D56F991B4F0786002FF452 /* CorrectnessJudger.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D56F981B4F0786002FF452 /* CorrectnessJudger.m */; };
+		00DDF4111B52D5B2006396E0 /* SongControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DDF4101B52D5B2006396E0 /* SongControlView.m */; };
+		00DDF4141B52E49C006396E0 /* SongControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DDF4131B52E49C006396E0 /* SongControlButton.m */; };
 		00F608391B49EAEC00708982 /* NSString+TextInputVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F608381B49EAEC00708982 /* NSString+TextInputVerification.m */; };
 		89DDFFE32CA6C85065F278E3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF1C1ACD49EE4414B412704 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -99,6 +101,10 @@
 		00D56F951B4EFE79002FF452 /* PhrasePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhrasePlayer.m; sourceTree = "<group>"; };
 		00D56F971B4F0786002FF452 /* CorrectnessJudger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorrectnessJudger.h; sourceTree = "<group>"; };
 		00D56F981B4F0786002FF452 /* CorrectnessJudger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorrectnessJudger.m; sourceTree = "<group>"; };
+		00DDF40F1B52D5B2006396E0 /* SongControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongControlView.h; sourceTree = "<group>"; };
+		00DDF4101B52D5B2006396E0 /* SongControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongControlView.m; sourceTree = "<group>"; };
+		00DDF4121B52E49C006396E0 /* SongControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongControlButton.h; sourceTree = "<group>"; };
+		00DDF4131B52E49C006396E0 /* SongControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongControlButton.m; sourceTree = "<group>"; };
 		00F608371B49EAEC00708982 /* NSString+TextInputVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextInputVerification.h"; sourceTree = "<group>"; };
 		00F608381B49EAEC00708982 /* NSString+TextInputVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextInputVerification.m"; sourceTree = "<group>"; };
 		18911955ECF4E2101C24A25F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +232,10 @@
 				00097D841B45C71600921602 /* PianoKeyButton.m */,
 				00097D801B45C36E00921602 /* ColorHalfCircleView.h */,
 				00097D811B45C36E00921602 /* ColorHalfCircleView.m */,
+				00DDF40F1B52D5B2006396E0 /* SongControlView.h */,
+				00DDF4101B52D5B2006396E0 /* SongControlView.m */,
+				00DDF4121B52E49C006396E0 /* SongControlButton.h */,
+				00DDF4131B52E49C006396E0 /* SongControlButton.m */,
 				00A8128E1B4AE6B200063E77 /* UIColor+SimonPianoColors.h */,
 				00A8128F1B4AE6B200063E77 /* UIColor+SimonPianoColors.m */,
 			);
@@ -460,6 +470,7 @@
 				00D56F991B4F0786002FF452 /* CorrectnessJudger.m in Sources */,
 				00097D821B45C36E00921602 /* ColorHalfCircleView.m in Sources */,
 				00A812931B4B02BC00063E77 /* NotePlayer.m in Sources */,
+				00DDF4141B52E49C006396E0 /* SongControlButton.m in Sources */,
 				00097D851B45C71600921602 /* PianoKeyButton.m in Sources */,
 				0044E2651B49CDAC00FC7AA6 /* SongFileProcessor.m in Sources */,
 				004D37FE1B4EF2B700B488A3 /* ScorePlayer.m in Sources */,
@@ -468,6 +479,7 @@
 				005600C51B49A25B00A6BE93 /* SimonPiano.m in Sources */,
 				0044E25B1B49C25200FC7AA6 /* Note.m in Sources */,
 				00F608391B49EAEC00708982 /* NSString+TextInputVerification.m in Sources */,
+				00DDF4111B52D5B2006396E0 /* SongControlView.m in Sources */,
 				00D56F961B4EFE79002FF452 /* PhrasePlayer.m in Sources */,
 				00A812901B4AE6B200063E77 /* UIColor+SimonPianoColors.m in Sources */,
 				0044E2581B49C08C00FC7AA6 /* MusicalScore.m in Sources */,

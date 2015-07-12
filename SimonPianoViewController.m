@@ -15,10 +15,13 @@
 #import "CorrectnessJudger.h"
 #import "PhraseGenerator.h"
 #import "MusicalPhrase.h" //<<<<<<<<<<<<<<<<<<<<<<<<<
+#import "SongControlView.h"
 
-@interface SimonPianoViewController () <SimonPianoDelegate, SimonPianoDataSource, ScorePlayerDelegate, PhraseGeneratorDelegate>
+@interface SimonPianoViewController () <SimonPianoDelegate, SimonPianoDataSource, ScorePlayerDelegate, PhraseGeneratorDelegate, SongControlDelegate>
 
 @property (assign, nonatomic) int indexOfCurrentPhrase;
+
+@property (strong, nonatomic) SongControlView *songControlView;
 
 @property (assign, nonatomic) int numberOfKeys;
 @property (strong, nonatomic) NSArray *keyColors;
@@ -53,6 +56,9 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor lightGrayColor];
     
+    self.songControlView = [[SongControlView alloc] init];
+    [self.view addSubview:self.songControlView];
+    
     self.keyColors = @[[UIColor simonBlue],
                        [UIColor simonGreen],
                        [UIColor simonOrange],
@@ -67,13 +73,13 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
     [self.piano reloadData]; //so that delegate/datasource methods are called
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+#pragma SongControlDelegate Methods
+
+- (void)songControlDidSelectSongAtIndex:(int)index {
     
-    [self beginPlayingSong];
 }
 
-- (void)beginPlayingSong {
+- (void)playSongAtIndex:(int)index {
     [self.piano setUserInteractionEnabled:NO];
     self.indexOfCurrentPhrase = 0;
     [self.scorePlayer playPhraseAtIndex:self.indexOfCurrentPhrase];
