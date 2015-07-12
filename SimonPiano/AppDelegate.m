@@ -18,7 +18,6 @@ static NSString * const DefaultSongName = @"Mary Had A Little Lamb";
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setupWindow];
     
@@ -32,11 +31,13 @@ static NSString * const DefaultSongName = @"Mary Had A Little Lamb";
 }
 
 - (void)showPianoWithDefaultSong {
+    NSArray *songNames = @[@"Mary Had A Little Lamb", @"The ABCs"];
+    
     __weak typeof (self) weakSelf = self;
-    [SongFileProcessor processSongFileWithName:DefaultSongName completion:^(MusicalScore *song, NSError *error) {
+    [SongFileProcessor processSongFilesWithTitles:songNames completion:^(NSArray *songs, NSError *error) {
         if (!error) {
             typeof (self) strongSelf = weakSelf;
-            strongSelf.window.rootViewController = [[SimonPianoViewController alloc] initWithSong:song];
+            strongSelf.window.rootViewController = [[SimonPianoViewController alloc] initWithSongs:songs];
             [strongSelf.window makeKeyAndVisible];
         }
     }];

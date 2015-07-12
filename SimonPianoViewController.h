@@ -11,5 +11,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SimonPianoViewController : UIViewController
-- (instancetype)initWithSong:(MusicalScore *)score;
+- (instancetype)initWithSongs:(NSArray *)songs;
 @end

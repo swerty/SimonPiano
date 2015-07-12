@@ -11,7 +11,7 @@
 @protocol SongControlDelegate <NSObject>
 
 - (void)songControlDidRequestStop;
-- (void)songControlDidStartSongAtIndex:(int)index;
+- (void)songControlDidPressStartForSongAtIndex:(int)index;
 
 @end
 
@@ -19,4 +19,7 @@
 
 @property (weak, nonatomic) id <SongControlDelegate> delegate;
 
+- (instancetype)initWithSongs:(NSArray *)songs;
+- (void)hideSelectSongButton;
+- (void)showSelectSongButton;
 @end

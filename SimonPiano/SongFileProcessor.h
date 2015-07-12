@@ -10,10 +10,11 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^SongFileProcessorCompletionBlock)(MusicalScore *song, NSError *error);
+typedef void (^SongFileProcessorCompletionBlock)(NSArray *outputSongs, NSError *error);
 
 @interface SongFileProcessor : NSObject
 
-+ (void)processSongFileWithName:(NSString *)name completion:(SongFileProcessorCompletionBlock)completion;
++ (void)processSongFilesWithTitles:(NSArray *)titles completion:(SongFileProcessorCompletionBlock)completion;
+//+ (void)processSongFileWithName:(NSString *)name completion:(SongFileProcessorCompletionBlock)completion;
 
 @end

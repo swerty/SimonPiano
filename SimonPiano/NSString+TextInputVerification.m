@@ -10,7 +10,8 @@
 
 @implementation NSString (TextInputVerification)
 
-- (BOOL)formatIsValidForSongText:(NSString *)songText {
+//TODO: needs implementing
+- (BOOL)songTextFormatIsValid{
     return YES;
 }
 

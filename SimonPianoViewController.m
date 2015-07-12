@@ -19,15 +19,16 @@
 
 @interface SimonPianoViewController () <SimonPianoDelegate, SimonPianoDataSource, ScorePlayerDelegate, PhraseGeneratorDelegate, SongControlDelegate>
 
-@property (assign, nonatomic) int indexOfCurrentPhrase;
-
 @property (strong, nonatomic) SongControlView *songControlView;
 
 @property (assign, nonatomic) int numberOfKeys;
 @property (strong, nonatomic) NSArray *keyColors;
 @property (strong, nonatomic) SimonPiano *piano;
 
-@property (strong, nonatomic) MusicalScore *score;
+@property (assign, nonatomic) int indexOfCurrentPhrase;
+@property (assign, nonatomic) int indexOfCurrentSong;
+
+@property (strong, nonatomic) NSArray *songs;
 @property (strong, nonatomic) ScorePlayer *scorePlayer;
 @property (strong, nonatomic) CorrectnessJudger *judger;
 @property (strong, nonatomic) PhraseGenerator *phraseGenerator;
@@ -39,13 +40,11 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
 
 @implementation SimonPianoViewController
 
-- (instancetype)initWithSong:(MusicalScore *)score {
+- (instancetype)initWithSongs:(NSArray *)songs {
     self = [super init];
     if (self) {
         self.indexOfCurrentPhrase = 0;
-        self.score = score;
-        self.scorePlayer = [[ScorePlayer alloc] initWithScore:score BPM:SimonPianoControllerDefaultBPM];
-        self.scorePlayer.delegate = self;
+        self.songs = songs;
     }
     
     return self;
@@ -56,7 +55,8 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor lightGrayColor];
     
-    self.songControlView = [[SongControlView alloc] init];
+    self.songControlView = [[SongControlView alloc] initWithSongs:self.songs];
+    self.songControlView.delegate = self;
     [self.view addSubview:self.songControlView];
     
     self.keyColors = @[[UIColor simonBlue],
@@ -75,14 +75,29 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
 
 #pragma SongControlDelegate Methods
 
-- (void)songControlDidSelectSongAtIndex:(int)index {
-    
+- (void)songControlDidPressStartForSongAtIndex:(int)index {
+    self.indexOfCurrentSong = index;
+    [self playSong];
+    [self.songControlView hideSelectSongButton];// cannot select a song while one is playing
 }
 
-- (void)playSongAtIndex:(int)index {
-    [self.piano setUserInteractionEnabled:NO];
-    self.indexOfCurrentPhrase = 0;
+- (void)playSong{
+    MusicalScore *score = self.songs[self.indexOfCurrentSong];
+    self.scorePlayer = [[ScorePlayer alloc] initWithScore:score BPM:SimonPianoControllerDefaultBPM];
+    self.scorePlayer.delegate = self;
     [self.scorePlayer playPhraseAtIndex:self.indexOfCurrentPhrase];
+}
+
+- (void)songControlDidRequestStop {
+    [self resetGame];
+    [self.songControlView showSelectSongButton];
+}
+
+- (void)resetGame {
+    self.indexOfCurrentPhrase = 0;
+    self.scorePlayer = nil;
+    self.judger = nil;
+    self.phraseGenerator = nil;
 }
 
 #pragma mark SimonPianoDataSource Methods
@@ -128,7 +143,8 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
         self.indexOfCurrentPhrase++;
     }
     
-    if (self.indexOfCurrentPhrase >= self.score.numberOfPhrases) {
+    MusicalScore *currentlyPlayingSong = self.songs[self.indexOfCurrentSong];
+    if (self.indexOfCurrentPhrase >= currentlyPlayingSong.numberOfPhrases) {
         return;
     }
     

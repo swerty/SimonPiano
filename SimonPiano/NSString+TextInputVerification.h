@@ -10,6 +10,6 @@
 
 @interface NSString (TextInputVerification)
 
-- (BOOL)formatIsValidForSongText:(NSString *)songText;
+- (BOOL)songTextFormatIsValid;
 
 @end
