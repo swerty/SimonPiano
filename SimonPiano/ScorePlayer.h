@@ -26,5 +26,6 @@
 
 - (instancetype)initWithScore:(MusicalScore *)score BPM:(float)BPM;
 - (void)playPhraseAtIndex:(int)index;
+- (void)playPhraseAtIndex:(int)index afterDelay:(NSTimeInterval)delay;
 
 @end

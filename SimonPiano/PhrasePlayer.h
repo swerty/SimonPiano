@@ -26,5 +26,6 @@
 
 - (instancetype)initWithNotePlayer:(NotePlayer *)notePlayer;
 - (void)playPhrase;
+- (void)playPhraseAfterDelay:(NSTimeInterval)delay;
 
 @end

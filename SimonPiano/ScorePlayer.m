@@ -14,7 +14,6 @@
 @interface ScorePlayer () <PhrasePlayerDelegate>
 
 @property (assign, nonatomic) BOOL isScorePlayerPlaying;
-@property (assign, nonatomic) float BPM;
 @property (assign, nonatomic) float secondsPerBeat;
 
 @property (strong, nonatomic) MusicalScore *score;
@@ -32,7 +31,7 @@
         self.notePlayer = [[NotePlayer alloc] initWithMinNoteValue:score.minNoteValue maxNoteValue:score.maxNoteValue];
         self.phrasePlayer = [[PhrasePlayer alloc] initWithNotePlayer:self.notePlayer];
         self.phrasePlayer.delegate = self;
-        self.BPM = BPM;
+        self.phrasePlayer.BPM = BPM;
     }
     
     return self;
@@ -42,6 +41,12 @@
     MusicalPhrase *phrase = [self.score getPhraseAtIndex:index];
     self.phrasePlayer.phrase = phrase;
     [self.phrasePlayer playPhrase];
+}
+
+- (void)playPhraseAtIndex:(int)index afterDelay:(NSTimeInterval)delay {
+    MusicalPhrase *phrase = [self.score getPhraseAtIndex:index];
+    self.phrasePlayer.phrase = phrase;
+    [self.phrasePlayer playPhraseAfterDelay:delay];
 }
 
 - (void)phrasePlayerDidFinishPlayingPhrase:(MusicalPhrase *)phrase {

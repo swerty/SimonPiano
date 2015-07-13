@@ -51,10 +51,14 @@
 
 //pharse player waits the length of one beat before playing the phrase
 - (void)playPhrase {
-    [self performSelector:@selector(playPhraseAfterOneBeatDelay) withObject:self afterDelay:self.secondsPerBeat];
+    [self playPhraseAfterDelay:self.secondsPerBeat];
 }
 
-- (void)playPhraseAfterOneBeatDelay {
+- (void)playPhraseAfterDelay:(NSTimeInterval)delay {
+    [self performSelector:@selector(playPhraseAfterGivenDelay) withObject:self afterDelay:delay];
+}
+
+- (void)playPhraseAfterGivenDelay {
     NSAssert(!self.isPhrasePlayerPlaying, @"The phrase player is already playing.");
     
     self.isPhrasePlayerPlaying = YES;

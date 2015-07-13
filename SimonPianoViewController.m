@@ -7,15 +7,17 @@
 //
 
 #import "UIColor+SimonPianoColors.h"
-
+#import <NSTimer+BlocksKit.h>
 #import "SimonPianoViewController.h"
 #import "SimonPiano.h"
 #import "MusicalScore.h"
 #import "ScorePlayer.h"
+#import "NotePlayer.h"
 #import "CorrectnessJudger.h"
 #import "PhraseGenerator.h"
 #import "MusicalPhrase.h" //<<<<<<<<<<<<<<<<<<<<<<<<<
 #import "SongControlView.h"
+#import "ScorePlayer+WinJingle.h"
 
 @interface SimonPianoViewController () <SimonPianoDelegate, SimonPianoDataSource, ScorePlayerDelegate, PhraseGeneratorDelegate, SongControlDelegate>
 
@@ -24,6 +26,8 @@
 @property (assign, nonatomic) int numberOfKeys;
 @property (strong, nonatomic) NSArray *keyColors;
 @property (strong, nonatomic) SimonPiano *piano;
+@property (strong, nonatomic) NotePlayer *notePlayer;
+@property (strong, nonatomic) ScorePlayer *winJinglePlayer;
 
 @property (assign, nonatomic) int indexOfCurrentPhrase;
 @property (assign, nonatomic) int indexOfCurrentSong;
@@ -45,6 +49,8 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
     if (self) {
         self.indexOfCurrentPhrase = 0;
         self.songs = songs;
+        self.winJinglePlayer = [ScorePlayer playerForWinJingle];
+        self.winJinglePlayer.delegate = self;
     }
     
     return self;
@@ -71,6 +77,8 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
     self.piano.delegate = self;
     [self.view addSubview:self.piano];
     [self.piano reloadData]; //so that delegate/datasource methods are called
+    
+    self.notePlayer = [[NotePlayer alloc] initWithMinNoteValue:1 maxNoteValue:6]; //min/max would be dynamic for more song options with more notes
 }
 
 #pragma SongControlDelegate Methods
@@ -82,6 +90,7 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
 }
 
 - (void)playSong{
+    [self.piano setUserInteractionEnabled:NO];
     MusicalScore *score = self.songs[self.indexOfCurrentSong];
     self.scorePlayer = [[ScorePlayer alloc] initWithScore:score BPM:SimonPianoControllerDefaultBPM];
     self.scorePlayer.delegate = self;
@@ -90,7 +99,6 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
 
 - (void)songControlDidRequestStop {
     [self resetGame];
-    [self.songControlView showSelectSongButton];
 }
 
 - (void)resetGame {
@@ -98,6 +106,7 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
     self.scorePlayer = nil;
     self.judger = nil;
     self.phraseGenerator = nil;
+    [self.songControlView showSelectSongButton];
 }
 
 #pragma mark SimonPianoDataSource Methods
@@ -115,8 +124,8 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
 
 - (void)simonPiano:(SimonPiano *)simonPiano didPressKeyAtIndex:(int)index {
     [self.piano animateKeyHighlightAtIndex:index];
-    
     int noteValue = index + 1; //keys are 0-indexed but notes are [1...6]
+    [self.notePlayer playNoteWithValue:noteValue];
     [self.phraseGenerator addNoteWithValue:noteValue];
 }
 
@@ -144,7 +153,9 @@ static float const SimonPianoControllerDefaultBPM = 90.0;
     }
     
     MusicalScore *currentlyPlayingSong = self.songs[self.indexOfCurrentSong];
-    if (self.indexOfCurrentPhrase >= currentlyPlayingSong.numberOfPhrases) {
+    if (self.indexOfCurrentPhrase >= currentlyPlayingSong.numberOfPhrases) { //indicates a win
+        [self.winJinglePlayer playPhraseAtIndex:0 afterDelay:1.0];
+        [self resetGame];
         return;
     }
     

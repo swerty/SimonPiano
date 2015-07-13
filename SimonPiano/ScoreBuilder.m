@@ -31,6 +31,8 @@ static NSString * const SongBuilderNoteDelimiter = @"-";
 - (instancetype)initWithSongTitle:(NSString *)title inputString:(NSString *)inputString {
     self = [super init];
     if (self) {
+        self.minNoteValue = INT_MAX;
+        self.maxNoteValue = INT_MIN;
         self.songTitle = title;
         self.inputString = inputString;
     }

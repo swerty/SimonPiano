@@ -41,7 +41,8 @@
 }
 
 - (void)playNoteWithValue:(int)value {
-    Note *noteToPlay = self.notes[value];
+    int index = value - 1;
+    Note *noteToPlay = self.notes[index];
     [noteToPlay play];
 }
 
