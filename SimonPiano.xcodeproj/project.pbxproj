@@ -34,6 +34,7 @@
 		00A812931B4B02BC00063E77 /* NotePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A812921B4B02BC00063E77 /* NotePlayer.m */; };
 		00AD014B1B49D63300ABDB9B /* ScoreBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AD014A1B49D63300ABDB9B /* ScoreBuilder.m */; };
 		00D242331B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D242321B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.m */; };
+		00D2D70F1B54615600E6B8DC /* TextInputVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2D70E1B54615600E6B8DC /* TextInputVerifier.m */; };
 		00D56F961B4EFE79002FF452 /* PhrasePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D56F951B4EFE79002FF452 /* PhrasePlayer.m */; };
 		00D56F991B4F0786002FF452 /* CorrectnessJudger.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D56F981B4F0786002FF452 /* CorrectnessJudger.m */; };
 		00DDF4111B52D5B2006396E0 /* SongControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DDF4101B52D5B2006396E0 /* SongControlView.m */; };
@@ -100,6 +101,8 @@
 		00AD014A1B49D63300ABDB9B /* ScoreBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBuilder.m; sourceTree = "<group>"; };
 		00D242311B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MyArrayPureLayout.h"; sourceTree = "<group>"; };
 		00D242321B4DC81E00CDD9C1 /* NSArray+MyArrayPureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MyArrayPureLayout.m"; sourceTree = "<group>"; };
+		00D2D70D1B54615600E6B8DC /* TextInputVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInputVerifier.h; sourceTree = "<group>"; };
+		00D2D70E1B54615600E6B8DC /* TextInputVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInputVerifier.m; sourceTree = "<group>"; };
 		00D56F941B4EFE79002FF452 /* PhrasePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhrasePlayer.h; sourceTree = "<group>"; };
 		00D56F951B4EFE79002FF452 /* PhrasePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhrasePlayer.m; sourceTree = "<group>"; };
 		00D56F971B4F0786002FF452 /* CorrectnessJudger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorrectnessJudger.h; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				00AD014A1B49D63300ABDB9B /* ScoreBuilder.m */,
 				00F608371B49EAEC00708982 /* NSString+TextInputVerification.h */,
 				00F608381B49EAEC00708982 /* NSString+TextInputVerification.m */,
+				00D2D70D1B54615600E6B8DC /* TextInputVerifier.h */,
+				00D2D70E1B54615600E6B8DC /* TextInputVerifier.m */,
 			);
 			name = "Song Input";
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 				0044E25B1B49C25200FC7AA6 /* Note.m in Sources */,
 				00F608391B49EAEC00708982 /* NSString+TextInputVerification.m in Sources */,
 				00DDF4111B52D5B2006396E0 /* SongControlView.m in Sources */,
+				00D2D70F1B54615600E6B8DC /* TextInputVerifier.m in Sources */,
 				00D56F961B4EFE79002FF452 /* PhrasePlayer.m in Sources */,
 				00A812901B4AE6B200063E77 /* UIColor+SimonPianoColors.m in Sources */,
 				0044E2581B49C08C00FC7AA6 /* MusicalScore.m in Sources */,

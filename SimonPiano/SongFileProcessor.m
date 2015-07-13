@@ -38,8 +38,9 @@
     }];
     
     if (!isValid) {
-        NSError *invalidInputError;
+        NSError *invalidInputError = [NSError errorWithDomain:nil code:-100 userInfo:@{NSLocalizedDescriptionKey : @"INVALID INPUT"}];
         completion(nil, invalidInputError);
+        return;
     }
     
     NSMutableArray *outputSongs = [[NSMutableArray alloc] initWithCapacity:songTexts.count];

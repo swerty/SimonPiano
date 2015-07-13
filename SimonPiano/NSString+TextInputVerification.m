@@ -10,9 +10,12 @@
 
 @implementation NSString (TextInputVerification)
 
-//TODO: needs implementing
 - (BOOL)songTextFormatIsValid{
-    return YES;
+    NSString *regexString = @"^(\\d[-\\n])*\\d$"; // double backslash necessary to escape backslash
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexString];
+    BOOL valid = [predicate evaluateWithObject:self];
+    
+    return valid;
 }
 
 @end

@@ -35,11 +35,13 @@ static NSString * const DefaultSongName = @"Mary Had A Little Lamb";
     
     __weak typeof (self) weakSelf = self;
     [SongFileProcessor processSongFilesWithTitles:songNames completion:^(NSArray *songs, NSError *error) {
-        if (!error) {
-            typeof (self) strongSelf = weakSelf;
-            strongSelf.window.rootViewController = [[SimonPianoViewController alloc] initWithSongs:songs];
-            [strongSelf.window makeKeyAndVisible];
+        if (error) {
+            NSLog(@"Error processing song files: %@", [error localizedDescription]);
+            return;
         }
+        typeof (self) strongSelf = weakSelf;
+        strongSelf.window.rootViewController = [[SimonPianoViewController alloc] initWithSongs:songs];
+        [strongSelf.window makeKeyAndVisible];
     }];
 }
 
