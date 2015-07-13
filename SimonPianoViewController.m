@@ -15,7 +15,7 @@
 #import "NotePlayer.h"
 #import "CorrectnessJudger.h"
 #import "PhraseGenerator.h"
-#import "MusicalPhrase.h" //<<<<<<<<<<<<<<<<<<<<<<<<<
+#import "MusicalPhrase.h"
 #import "SongControlView.h"
 #import "ScorePlayer+WinJingle.h"
 
